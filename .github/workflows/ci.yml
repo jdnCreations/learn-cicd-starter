@@ -18,3 +18,8 @@ jobs:
 
       - name: Force Failure
         run: go version
+  
+  style:
+    - name: Style
+      run: test -z $(go fmt ./...)
+
