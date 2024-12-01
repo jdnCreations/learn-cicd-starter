@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+        uses: actions/setupgo@v4
+        with: go-version '1.21'
 
       - name: Install staticcheck
         run: |
