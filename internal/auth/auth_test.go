@@ -61,7 +61,7 @@ func TestInvalidAuthPrefix(t *testing.T) {
 	want := ErrMalformedHeader
 
 	_, err = GetAPIKey(req.Header)
-	if err.Error() != "bob" {
+	if err.Error() != want.Error() {
 		t.Fatalf("expected error %v, got %v", want, err)
 	}
 }
