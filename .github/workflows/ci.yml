@@ -18,3 +18,13 @@ jobs:
 
       - name: Force Failure
         run: go version
+
+    name: Style
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Style
+        run: test -z $(go fmt ./...)
