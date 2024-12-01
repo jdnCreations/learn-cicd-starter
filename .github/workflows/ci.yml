@@ -28,11 +28,11 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Style
-        run: test -z $(go fmt ./...)
-
       - name: Install staticcheck
         run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      - name: Style
+        run: test -z $(go fmt ./...)
 
       - name: Run staticcheck
         run: staticcheck ./...
