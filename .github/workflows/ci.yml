@@ -19,6 +19,7 @@ jobs:
       - name: Force Failure
         run: go version
 
+  style:
     name: Style
     runs-on: ubuntu-latest
 
