@@ -18,3 +18,31 @@ jobs:
 
       - name: Force Failure
         run: go version
+
+      - name: install gosec
+        run: |
+          echo "$HOME/go/bin" >> $GITHUB_PATH
+          go install github.com/securego/gosec/v2/cmd/gosec@latest
+
+      - name: run gosec
+        run: gosec ./...
+
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up go
+        uses: actions/setup-go@v4
+
+      - name: Style
+        run: test -z $(go fmt ./...)
+
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      - name: Use staticcheck
+        run: staticcheck ./...
