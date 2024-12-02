@@ -5,15 +5,16 @@ on:
     branches: [main]
 
 jobs:
-  name: Deploy
-  runs-on: ubuntu-latest
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Check out code
-      uses: actions/checkout@v4
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
 
-    - name: Set up go toolchain
-      uses: actions/setup-go@v4
+      - name: Set up go toolchain
+        uses: actions/setup-go@v4
 
-    - name: Build app
-      run: scripts/buildprod.sh
+      - name: Build app
+        run: scripts/buildprod.sh
